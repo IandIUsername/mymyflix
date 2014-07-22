@@ -1,0 +1,21 @@
+%article.video_category
+  %strong "Comedies"
+  .videos.row
+ 
+    - @comedies.each do |video|
+      .video.span2
+        %br/
+        = link_to video.title, video_path(video)
+        = link_to image_tag(video.cover_image_url.sub('public','')), video_path(video)
+       
+  %strong "Dramas"        
+  .videos.row
+  
+    - @dramas.each do |video2|
+      .video2.span3
+        %br
+        = link_to "#{video2.title}", video_path(video2)
+        = link_to image_tag(video2.cover_image_url.sub('public','')), video_path(video2)
+      
+        
+       

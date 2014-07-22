@@ -2,12 +2,21 @@ source 'https://rubygems.org'
 ruby '2.1.1'
 
 gem 'bootstrap-sass'
-gem 'coffee-rails'
+# gem 'coffee-rails'
 gem 'rails', '4.1.1'
 gem 'haml-rails'
-gem 'sass-rails'
-gem 'uglifier'
+#gem 'sass-rails'
+#gem 'uglifier'
 gem 'jquery-rails'
+
+group :assets do
+  
+  gem 'sass-rails'
+  gem 'coffee-rails'
+  gem 'uglifier'
+  
+  end
+  
 
 group :development do
   gem 'sqlite3'

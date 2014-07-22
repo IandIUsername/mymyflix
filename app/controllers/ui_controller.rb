@@ -6,5 +6,6 @@ class UiController < ApplicationController
   layout "application"
 
   def index
+#     raise params.inspect
   end
 end
