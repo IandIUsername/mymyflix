@@ -9,6 +9,10 @@ gem 'haml-rails'
 #gem 'uglifier'
 gem 'jquery-rails'
 
+
+
+
+
 group :assets do
   
   gem 'sass-rails'
@@ -25,10 +29,11 @@ group :development do
   gem 'thin'
   gem "better_errors"
   gem "binding_of_caller"
+  
 end
 
 group :development, :test do
-  gem 'rspec-rails', '2.99'
+  gem 'rspec-rails'
 end
 
 group :test do

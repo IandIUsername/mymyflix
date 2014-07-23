@@ -1,4 +1,4 @@
-class VideosController < ApplicationController
+class VideoController < ApplicationController
 
   
   def index
