@@ -2,7 +2,9 @@ class VideosController < ApplicationController
 
   
   def index
-    #@search = Video.search_by_title(params[:search_by_title])
+    
+    @categories = Category.all
+    @search = Video.search_by_title(params[:search_by_title])
     @videos = Video.all
     comedy = Category.first
     drama = Category.second
