@@ -10,7 +10,9 @@ gem 'haml-rails'
 gem 'jquery-rails'
 
 
-
+group :test do
+  gem 'shoulda-matchers'
+end
 
 
 group :assets do

@@ -1,12 +1,20 @@
-%article.video_category
+%article
+  %strong "Search by title"
+  .search.row
+    -form_tag video_index_path, :method => 'get' do
+      %p
+        =text_field_tag :search_by_title, params[:search_by_title]
+        =submit_tag "Search", :name => nil
+    
+%article
   %strong "Comedies"
   .videos.row
- 
-    - @comedies.each do |video|
-      .video.span2
-        %br/
-        = link_to video.title, video_path(video)
+    -@comedies.each do |video|
+      -if
         = link_to image_tag(video.cover_image_url.sub('public','')), video_path(video)
+      -else
+        = link_to image_tag "", video_path(video)
+        
        
   %strong "Dramas"        
   .videos.row
