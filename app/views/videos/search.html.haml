@@ -1,0 +1,7 @@
+%strong
+-@search.each do |video|
+  .video.span2
+    -if video.cover_image_url.present?
+      =link_to image_tag(video.cover_image_url.sub('public','')), video_path(video)
+    -else
+      =link_to image_tag(""), video_path(video)  

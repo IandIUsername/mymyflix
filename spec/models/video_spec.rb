@@ -83,4 +83,58 @@ describe Video do
   end
 end
 
+describe Video do
+  it "returns a video if the name of a video is passed to the method" do
+    monk = "Monk"
+    monkobject = Video.find_by_title("Monk")
+    expect(Video.find_by_title(monk)).to eq(monkobject)
+  end
+end
 
+describe Video do
+  it "returns a video if the first letter or letters of the video is/are passed to the method" do
+  monk = "Mo"
+  monkobject = Video.find_by_title("monk")
+  expect(Video.find_by_title(monk)).to eq(monkobject)
+  end
+end
+
+
+describe "search by title" do
+  it "returns an empty array if there is no match" do
+    futurama = Video.create(title: "Futurama", description: "Space travel")
+    back_to_future = Video.create(title: "Back to the Future", description: "Marty McFly")
+    expect(Video.search_by_title("hello")).to eq([])
+    
+  end
+    it "return an array of one video if there is an exact match" do
+       futurama = Video.create(title: "Futurama", description: "Space travel")
+       back_to_future = Video.create(title: "Back to the Future", description: "Marty McFly")
+      expect(Video.search_by_title("Futurama")).to eq([futurama])
+      
+    end
+  it "returns an array of one video if there is a partial match" do
+     futurama = Video.create(title: "Futurama", description: "Space travel")
+     back_to_future = Video.create(title: "Back to the Future", description: "Marty McFly")
+    expect(Video.search_by_title("urama")).to eq([futurama])
+  end
+  
+  
+  it "returns an array of all matches ordered by created_at" do
+    futurama = Video.create(title: "Futurama", description: "Space travel", created_at: 1.day.ago)
+    back_to_future = Video.create(title: "Back to the Future", description: "Marty McFly")
+    expect(Video.search_by_title("futur")).to eq([back_to_future, futurama])
+ 
+    end
+  
+  it "returns an empty array for a search with an empty string" do
+    futurama = Video.create(title: "Futurama", description: "Space travel", created_at: 1.day.ago)
+    back_to_future = Video.create(title: "Back to the Future", description: "Marty McFly")
+    expect(Video.search_by_title("")).to eq([])
+  end
+  
+    
+end
+
+
+    
