@@ -8,10 +8,12 @@ gem 'haml-rails'
 #gem 'sass-rails'
 #gem 'uglifier'
 gem 'jquery-rails'
-
+gem 'bootstrap_form'
+gem 'bcrypt'
 
 group :test do
   gem 'shoulda-matchers'
+  gem 'bootstrap_form'
 end
 
 
@@ -31,6 +33,7 @@ group :development do
   gem 'thin'
   gem "better_errors"
   gem "binding_of_caller"
+  gem 'bootstrap_form'
   
 end
 
