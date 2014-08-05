@@ -10,6 +10,8 @@ gem 'haml-rails'
 gem 'jquery-rails'
 gem 'bootstrap_form'
 gem 'bcrypt'
+gem 'fabrication'
+gem 'faker'
 
 group :test do
   gem 'shoulda-matchers'

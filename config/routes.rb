@@ -23,6 +23,6 @@ Myflix::Application.routes.draw do
   #get 'video_index' => 'videos#index'
   #get 'videos/:id' => 'videos#show', as: 'video'
   #get 'home' => 'videos#index', as: 'home'
-  root to: 'pages#show'
+  root to: 'sessions#new'
   
 end
