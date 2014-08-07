@@ -1,7 +1,7 @@
 class Video < ActiveRecord::Base
   
   
-  
+  has_many :reviews, as: :reviewable
   belongs_to :user
   belongs_to :category
   validates_presence_of :title, :description
