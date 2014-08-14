@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   
-  has_many :reviews, as: :reviewable
+  has_many :reviews
+  has_many :videos
 
   validates_presence_of :email, :password, :full_name
   validates_uniqueness_of :email
