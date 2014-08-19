@@ -4,7 +4,17 @@ describe Video do
   it { should belong_to(:category) }
   it { should validate_presence_of(:title) }
   it { should validate_presence_of(:description) }  
+  it { should have_many(:reviews).order("created_at desc")}
+  #it { should have_many(:reviews).order('pos') }
 end
+
+# describe Video do
+#   it "should have many reviews sorted by created_at in descending" do
+#     video = Fabricate(:video)
+#     Fabricate.times(2, :review, user: Fabricate(:user), video: video)
+#     expect(video.reviews).to eq(video.reviews.sort_by { |i| i.created_at }.reverse)
+# end
+# end
 
 describe Video do
   it "save itself" do

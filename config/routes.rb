@@ -1,9 +1,9 @@
 
 Myflix::Application.routes.draw do
   
-  
-  get 'ui(/:action)', controller: 'ui'
-
+  get 'my_queue', to: 'queue_items#index'
+ # get 'ui(/:action)', controller: 'ui'
+ 
   resources :videos, only: [:show] do
     collection do 
       post :search, to: "videos#search"
@@ -19,6 +19,7 @@ Myflix::Application.routes.draw do
   get 'sign_in'  => 'sessions#new'
   get 'home'     => 'videos#index', as: 'home'
   get 'sign_out' =>  'sessions#destroy', as: 'sign_out'
+  get 'categories/:id' => 'categories#show', as: 'category'
   
   #get 'myprofile/:user_id/:post_id'
   #get 'video_index' => 'videos#index'

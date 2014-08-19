@@ -1,10 +1,20 @@
 class ReviewsController < ApplicationController
 
+  before_filter :require_user
+  
 def create
   
-  video = Video.find(params[:video_id])
-  video.reviews.create(review_params)
-  redirect_to video
+  @video = Video.find(params[:video_id])
+  @review = @video.reviews.build(review_params)
+  @review.user = current_user
+  if @review.save
+    flash.notice = "the big bopper says you have created a review"
+    redirect_to video_path(@video)
+  else
+    @reviews = @video.reviews.reload
+    flash.notice = "Error, Will Robinson, error"
+    render "videos/show"
+  end
   
 # @review = Review.create(review_params)
 

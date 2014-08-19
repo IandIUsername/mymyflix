@@ -1,7 +1,7 @@
 class Video < ActiveRecord::Base
   
-  
-  has_many :reviews
+  has_many :queue_items
+  has_many :reviews, -> { order 'created_at desc' }
   belongs_to :user
   belongs_to :category
   validates_presence_of :title, :description
