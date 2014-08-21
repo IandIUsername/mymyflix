@@ -13,6 +13,7 @@ Myflix::Application.routes.draw do
   
   resources :users, only: [:create]
   resources :sessions, only: [:create]
+  resources :queue_items, only: [:create,:destroy]
   
   get 'register' => 'users#new'
   get 'front'    => 'pages#front'
@@ -20,7 +21,8 @@ Myflix::Application.routes.draw do
   get 'home'     => 'videos#index', as: 'home'
   get 'sign_out' =>  'sessions#destroy', as: 'sign_out'
   get 'categories/:id' => 'categories#show', as: 'category'
-  
+  #post 'queue_item' => 'queue_item#create', as: 'queue_item'
+  #delete 'queue_items' => 'queue_item#destroy', as: 'queue_items'
   #get 'myprofile/:user_id/:post_id'
   #get 'video_index' => 'videos#index'
   #get 'videos/:id' => 'videos#show', as: 'video'
