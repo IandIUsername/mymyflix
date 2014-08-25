@@ -1,0 +1,15 @@
+
+[1mFrom:[0m /home/action/myflix/spec/controllers/queue_items_controller_spec.rb @ line 159 :
+
+    [1;34m154[0m:       
+    [1;34m155[0m:     [32mend[0m
+    [1;34m156[0m:     context [31m[1;31m"[0m[31mwith invalid inputs[1;31m"[0m[31m[0m [32mdo[0m
+    [1;34m157[0m:       
+    [1;34m158[0m:       jessie = Fabricate([33m:user[0m)
+ => [1;34m159[0m:       binding.pry
+    [1;34m160[0m:       session[[33m:user_id[0m] = jessie.id
+    [1;34m161[0m:       queue_item1 = Fabricate([33m:queue_item[0m, [35muser[0m: jessie, [35mposition[0m: [1;34m1[0m)
+    [1;34m162[0m:       queue_item2 = Fabricate([33m:queue_item[0m, [35muser[0m: jessie, [35mposition[0m: [1;34m2[0m)
+    [1;34m163[0m:       post [33m:update_queue[0m, [35mqueue_items[0m: [{[35mid[0m: queue_item1.id, [35mposition[0m: [31m[1;31m"[0m[31ma[1;31m"[0m[31m[0m}, {[35mid[0m: queue_item2.id, [35mposition[0m: [31m[1;31m"[0m[31mb[1;31m"[0m[31m[0m}]
+    [1;34m164[0m:       expect(response).to redirect_to my_queue_path
+
