@@ -2,6 +2,9 @@ class ReviewsController < ApplicationController
 
   before_filter :require_user
   
+  def update_queue_items_ratings
+  end
+  
 def create
   
   @video = Video.find(params[:video_id])

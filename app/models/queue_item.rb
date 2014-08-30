@@ -24,15 +24,24 @@ class QueueItem < ActiveRecord::Base
 #   end
   
   def rating
-   
     review = Review.where(user: self.user.id, video_id: self.video.id).first
-#     if review == nil
-#       return 100
-#     else
     review.rating if review
   end
-#   end
+
   
+  def rating=(new_rating)
+    review
+    if review
+     review.update_column(:rating, new_rating)   
+    else
+      review = Review.new(user: user, video: video, rating: new_rating)
+      review.save(validate: false)
+    end
+  end
+  
+  def review
+    @review = @review || Review.where(user_id: user.id, video_id: video.id).first
+  end
   
   #def rating
     #if self.video.reviews = nil

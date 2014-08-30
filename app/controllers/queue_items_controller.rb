@@ -28,7 +28,12 @@ class QueueItemsController < ApplicationController
   end
   
   def update_queue
-    begin
+#     if params[:rating1]
+#       redirect_to video_review_path(video_id: params
+#       return
+#     else 
+#     end
+     begin
       update_queue_items
       current_user.normalize_queue_item_positions
     rescue ActiveRecord::RecordInvalid
@@ -36,6 +41,7 @@ class QueueItemsController < ApplicationController
     end
       redirect_to my_queue_path
     end
+  #end
   
   
   private
@@ -46,11 +52,12 @@ class QueueItemsController < ApplicationController
 #     end
 #   end
 
-def update_queue_items
+  def update_queue_items
       ActiveRecord::Base.transaction do
       params[:queue_items].each do |queue_item_data|
+        puts queue_item_data.inspect
       queue_item = QueueItem.find(queue_item_data["id"])
-        queue_item.update_attributes!(position: queue_item_data["position"]) if queue_item.user == current_user
+        queue_item.update_attributes!(position: queue_item_data["position"], rating: queue_item_data["rating"], video: queue_item_data["video_id"]) if queue_item.user == current_user
         end
      end
   
@@ -70,6 +77,6 @@ end
   end
   
   def queue_item_params
-    params.require(:QueueItem).permit(:video_id, :user_id, :position)
+    params.require(:QueueItem).permit(:video_id, :user_id, :position, :rating, :video)
   end
 end

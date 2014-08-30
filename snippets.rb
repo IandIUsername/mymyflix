@@ -1,0 +1,1 @@
+#= submit_tag "update list order", :name => "queue_items[list_order]", class: 'btn'
