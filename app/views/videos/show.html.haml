@@ -2,13 +2,16 @@
   .container
     .row
       .video_large_cover.col-sm-7.col-sm-offset-1
+      - if @video.cover_image_url
         %img(src="#{@video.cover_image_url.sub('public','')}")
+      - else
+        ="no cover image"
       .video_info.col-sm-3
         %header
           %h3= @video.title
         %p= @video.description
         .actions
-          = link_to "+ My Queue", queue_items_path(video_id: @video.id), method: :post, class: 'btn'
+          = link_to "+ My Queue", queue_items_path(video_id: @video.id), method: :post, class: 'btn' unless current_user.queued_video?(@video)
 
 %section.reviews.container
   .row

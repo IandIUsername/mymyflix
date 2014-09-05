@@ -14,7 +14,10 @@ class User < ActiveRecord::Base
     queue_items.each_with_index do |item, index|
       item.update_attributes(position: index+1)
     end
-    
+  end
+  
+  def queued_video?(video)
+    self.queue_items.map(&:video).include?(video)
   end
 
 end

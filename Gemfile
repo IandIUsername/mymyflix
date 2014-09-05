@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 ruby '2.1.1'
-
+gem 'launchy'
 gem 'pry'
 gem 'bootstrap-sass'
 # gem 'coffee-rails'
@@ -17,6 +17,7 @@ gem 'faker'
 group :test do
   gem 'shoulda-matchers'
   gem 'bootstrap_form'
+  gem 'capybara'
 end
 
 
