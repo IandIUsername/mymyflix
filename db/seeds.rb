@@ -15,8 +15,8 @@ Video.create(name: "South Park", description: "Classic show", cover_image_url:"p
 Video.create(name: "Monk", description: "Neurotic guy in SF, very funny",cover_image_url: "public/tmp/monk_large.jpg", title: "Monk", category_id: 1)
 Video.create(name: "Monk", description: "Neurotic guy in SF, very funny",cover_image_url: "public/tmp/monk_large.jpg", title: "Monk", category_id: 1)
 
-Category.create(category_name: "Comedy", id: 1)
-Category.create(category_name: "Drama", id: 2)
+Category.create(category_name: "Comedy")
+Category.create(category_name: "Drama")
 
 scott = User.create(full_name: "Scott IAMI", password: "password", email: "test@testmail.com")
 
