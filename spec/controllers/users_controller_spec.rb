@@ -7,6 +7,7 @@ describe UsersController do
       let(:action) { get :show, id: 3 }
     #expect(response).to redirect_to user_show_path
   end
+    
     it "sets @user" do
       alice = Fabricate(:user)
       set_current_user(alice)

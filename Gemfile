@@ -13,6 +13,9 @@ gem 'bootstrap_form'
 gem 'bcrypt'
 gem 'fabrication'
 gem 'faker'
+gem 'figaro'
+
+
 
 group :test do
   gem 'shoulda-matchers'
@@ -41,8 +44,13 @@ group :development do
   
 end
 
+group :development do
+  gem 'letter_opener'
+end
+
 group :development, :test do
   gem 'rspec-rails'
+  
 end
 
 group :test do

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140816020459) do
+ActiveRecord::Schema.define(version: 20140910030830) do
 
   create_table "categories", force: true do |t|
     t.string   "category_name"
@@ -23,6 +23,13 @@ ActiveRecord::Schema.define(version: 20140816020459) do
     t.integer  "video_id"
     t.integer  "user_id"
     t.integer  "position"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "relationships", force: true do |t|
+    t.integer  "leader_id"
+    t.integer  "follower_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

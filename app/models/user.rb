@@ -4,7 +4,24 @@ class User < ActiveRecord::Base
   #has_many :queue_items, -> { order(:position) }
   has_many :reviews, -> {order("created_at DESC")}
   has_many :videos, -> { order("created_at DESC") }
-
+  has_many :following_relationships, class_name: "Relationship", foreign_key: :follower_id
+  #has_many :followers 
+  
+# def follows?(another_user)
+#   Relationship.where(leader_id: another_user.id, follower_id: self.id).present?
+# end
+  
+  def can_follow?(another_user)
+    !(self.follows?(another_user) || self.id == another_user.id)
+  end
+  
+  
+  def follows?(another_user)
+    self.following_relationships.map(&:leader).include?(another_user)
+  end
+  
+  has_many :leading_relationships, class_name: "Relationship", foreign_key: :leader_id
+  #has_many :leaders
   validates_presence_of :email, :password, :full_name
   validates_uniqueness_of :email
   #has_many :videos
