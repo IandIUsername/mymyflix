@@ -7,3 +7,8 @@
 # GMAIL_USERNAME: 'Your_Gmail_Username'
 # makes 'Your_Gmail_Username' available as ENV["GMAIL_USERNAME"]
 GMAIL_USERNAME: 'Your_Gmail_Username'
+GMAIL_PASSWORD: 'Your_gmail_password'
+
+
+GMAIL_USERNAME_DEV: 'Your_Gmail_Username_For_Development'
+GMAIL_USERNAME_TEST: 'Your_Gmail_Username_For_Tests'

@@ -14,7 +14,7 @@ gem 'bcrypt'
 gem 'fabrication'
 gem 'faker'
 gem 'figaro'
-
+gem 'letter_opener'
 
 
 group :test do

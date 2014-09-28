@@ -21,6 +21,12 @@ Myflix::Application.routes.draw do
 
   resources :relationships, only: [:destroy]
   
+  resources :password_resets, only: [:show, :create]
+  
+  get 'expired_token', to: 'password_resets#expired_token', as: 'expired_token'
+  get 'forgot_password_confirmation', to:'forgot_passwords#confirm', as: 'forgot_password_confirmation'
+  get  'forgot_password', to: 'forgot_passwords#new', as: 'forgot_password'
+  resources :forgot_passwords, only: [:create]
   post 'relationships_create', to: 'relationships#create', as: 'relationships_create'
   post 'update_queue', to: 'queue_items#update_queue'
   get 'register' => 'users#new'

@@ -7,6 +7,9 @@ class User < ActiveRecord::Base
   has_many :following_relationships, class_name: "Relationship", foreign_key: :follower_id
   #has_many :followers 
   
+  
+  before_create :generate_token
+  
 # def follows?(another_user)
 #   Relationship.where(leader_id: another_user.id, follower_id: self.id).present?
 # end
@@ -35,6 +38,12 @@ class User < ActiveRecord::Base
   
   def queued_video?(video)
     self.queue_items.map(&:video).include?(video)
+  end
+  
+  #private
+  
+  def generate_token
+    self.token = SecureRandom.urlsafe_base64
   end
 
 end

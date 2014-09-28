@@ -58,4 +58,25 @@ end
 
 end
 end
+  
+  context "sending emails" do
+    
+    after { ActionMailer::Base.deliveries.clear }
+    
+    it "sends out email to the user with valid inputs" do
+      post :create, user: { email: "user10@mail.com", password: "password", full_name: "user10" }
+      expect(ActionMailer::Base.deliveries.last.to).to eq(["user10@mail.com"])
+      
+    end
+    it "sends out email containing the users name with valid inputs" do
+      post :create, user: { email: "user10@mail.com", password: "password", full_name: "user10" }
+      expect(ActionMailer::Base.deliveries.last.body).to include("user10")
+    end
+    it "does not send out email with invalid inputs" do
+      post :create, user: { email: nil, password: "password", full_name: "user10" }
+expect(ActionMailer::Base.deliveries).to be_empty
+    end
+    
+  end
+  
 end
