@@ -15,6 +15,8 @@ gem 'fabrication'
 gem 'faker'
 gem 'figaro'
 gem 'letter_opener'
+gem 'capybara-email', github: 'dockyard/capybara-email'
+
 
 
 group :test do
