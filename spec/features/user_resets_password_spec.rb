@@ -13,8 +13,8 @@ feature "user resets password" do
     fill_in "New Password", with: "new_password"
     click_button "Reset Password"
     
-    raise current_path.inspect
-    fill_in "email address", with: alice.email
+
+    fill_in 'email address', with: alice.email
     fill_in 'password', with: "new_password"
     click_button "Sign in"
     expect(page).to have_content("Welcome, #{alice.full_name}")

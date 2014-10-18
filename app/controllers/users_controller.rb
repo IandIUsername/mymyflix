@@ -2,6 +2,11 @@ class UsersController < ApplicationController
   
   before_filter :require_user, only: [:show]
   
+  def new_with_invitation_token
+    
+  end
+  
+  
   def new
     @user = User.new
   end

@@ -7,6 +7,10 @@ Myflix::Application.routes.draw do
   
  # get 'ui(/:action)', controller: 'ui'
  
+  
+  resources :invitations, only: [:new, :create]
+  
+  
   resources :videos, only: [:show] do
     collection do 
       post :search, to: "videos#search"
@@ -30,6 +34,7 @@ Myflix::Application.routes.draw do
   post 'relationships_create', to: 'relationships#create', as: 'relationships_create'
   post 'update_queue', to: 'queue_items#update_queue'
   get 'register' => 'users#new'
+  get 'register/:token', to: 'users#new_with_invitation_token', as: 'register_with_token_url'
   get 'front'    => 'pages#front'
   get 'sign_in'  => 'sessions#new'
   get 'home'     => 'videos#index', as: 'home'

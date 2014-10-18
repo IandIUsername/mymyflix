@@ -1,6 +1,10 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   
+  def inviter(invitation)
+    User.find(invitation.inviter_id)
+  end
+  
   
   def require_user
     redirect_to sign_in_path unless current_user
