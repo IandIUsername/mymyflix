@@ -7,5 +7,8 @@ class PagesController < ApplicationController
   def show
     
   end
+  
+  def expired_token
+  end
 
 end

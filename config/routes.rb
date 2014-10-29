@@ -27,6 +27,7 @@ Myflix::Application.routes.draw do
   
   resources :password_resets, only: [:show, :create]
   
+  get 'expired_inivtation_token', to: 'pages#expired_token', as: 'expired_invitation_token'
   get 'expired_token', to: 'password_resets#expired_token', as: 'expired_token'
   get 'forgot_password_confirmation', to:'forgot_passwords#confirm', as: 'forgot_password_confirmation'
   get  'forgot_password', to: 'forgot_passwords#new', as: 'forgot_password'
@@ -34,7 +35,7 @@ Myflix::Application.routes.draw do
   post 'relationships_create', to: 'relationships#create', as: 'relationships_create'
   post 'update_queue', to: 'queue_items#update_queue'
   get 'register' => 'users#new'
-  get 'register/:token', to: 'users#new_with_invitation_token', as: 'register_with_token_url'
+  get 'register/:token', to: 'users#new_with_invitation_token', as: 'register_with_token'
   get 'front'    => 'pages#front'
   get 'sign_in'  => 'sessions#new'
   get 'home'     => 'videos#index', as: 'home'

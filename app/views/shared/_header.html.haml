@@ -6,6 +6,7 @@
       %li= link_to "Videos"
       %li= link_to "My Queue"
       %li= link_to "People", people_path
+      %li= link_to "Invite Someone", new_invitation_path
     = form_tag search_videos_path, method: :get, class: "span5 for-search" do
       %input.search-query(name="search_by_title" type="text" placeholder="Search for videos here")
       %button.btn.btn-default(type="submit") Search
@@ -20,4 +21,5 @@
               %a(href="#") Account
               %a(href="#") Plan and Billing
               = link_to "Sign Out", sign_out_path
+              = link_to "Invite a friend", new_invitation_path
               

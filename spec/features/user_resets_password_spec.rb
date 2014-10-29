@@ -20,6 +20,6 @@ feature "user resets password" do
     expect(page).to have_content("Welcome, #{alice.full_name}")
     
     
-    
+    clear_email
   end
 end

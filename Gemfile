@@ -18,7 +18,6 @@ gem 'letter_opener'
 gem 'capybara-email', github: 'dockyard/capybara-email'
 
 
-
 group :test do
   gem 'shoulda-matchers'
   gem 'bootstrap_form'

@@ -1,4 +1,8 @@
+
+
 class User < ActiveRecord::Base
+  
+  include Tokenable
   
   has_many :queue_items, -> { order(:position) }
   #has_many :queue_items, -> { order(:position) }
@@ -6,9 +10,7 @@ class User < ActiveRecord::Base
   has_many :videos, -> { order("created_at DESC") }
   has_many :following_relationships, class_name: "Relationship", foreign_key: :follower_id
   #has_many :followers 
-  
-  
-  before_create :generate_token
+
   
 # def follows?(another_user)
 #   Relationship.where(leader_id: another_user.id, follower_id: self.id).present?
@@ -18,6 +20,9 @@ class User < ActiveRecord::Base
     !(self.follows?(another_user) || self.id == another_user.id)
   end
   
+  def follow(another_user)
+    self.following_relationships.create(leader: another_user) if self.can_follow?(another_user)
+  end
   
   def follows?(another_user)
     self.following_relationships.map(&:leader).include?(another_user)
@@ -42,8 +47,6 @@ class User < ActiveRecord::Base
   
   #private
   
-  def generate_token
-    self.token = SecureRandom.urlsafe_base64
-  end
+
 
 end

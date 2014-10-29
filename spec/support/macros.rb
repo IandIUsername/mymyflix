@@ -3,6 +3,9 @@ def set_current_user(user=nil)
   
 end
 
+def sign_out
+  visit sign_out_path
+end
 
 def sign_in(a_user=nil)
   user = a_user || Fabricate(:user)

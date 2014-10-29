@@ -1,6 +1,8 @@
+
+
 class Invitation < ActiveRecord::Base
   
-  before_create :generate_token
+  include Tokenable
   
    belongs_to :inviter, class_name: "User"
   
@@ -12,9 +14,6 @@ class Invitation < ActiveRecord::Base
      #User.find(invitation.inviter_id)
   #end
   
-  def generate_token
-    self.token = SecureRandom.urlsafe_base64
-    
-  end
+ 
   
 end
