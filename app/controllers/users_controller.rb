@@ -27,7 +27,9 @@ class UsersController < ApplicationController
     @user = User.create(user_params)
     if @user.save
       handle_invitation
-      AppMailer.send_welcome_email(@user).deliver
+      #AppMailer.send_welcome_email(@user).deliver
+      AppMailer.delay.send_welcome_email(@user.id)
+      #AppMailer.send_welcome_email.SideKiqWorkerWelcomeEmail.perform_async(@user.id)
       redirect_to sign_in_path
     else
       render :new

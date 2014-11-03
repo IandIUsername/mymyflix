@@ -3,6 +3,17 @@ ENV["RAILS_ENV"] ||= 'test'
 require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
 require 'capybara/email/rspec'
+#require 'sidekiq/testing'
+require 'sidekiq/testing'
+Sidekiq::Testing.inline!
+
+
+# To query the current state, use the following methods:
+
+# Sidekiq::Testing.enabled?
+# Sidekiq::Testing.disabled?
+# Sidekiq::Testing.fake?
+# Sidekiq::Testing.inline?
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are

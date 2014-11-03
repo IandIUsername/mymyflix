@@ -1,5 +1,7 @@
 class AppMailer < ActionMailer::Base
   
+  default from: "My Flix"
+  
   def send_welcome_email(user)
     @user = user
     mail to: user.email, from: "info@myflix.com", subject: "welcome to myflix, yeah!"

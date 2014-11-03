@@ -35,7 +35,7 @@ describe InvitationsController do
       post :create, invitation: { recipient_name: "joe smith", recipient_email: "joe@example.com", messages: "You will join myflix." }
       expect(ActionMailer::Base.deliveries.last.to).to eq(["joe@example.com"])
     end
-    
+  
     it "redirects to the invitation new page" do
       set_current_user
       post :create, invitation: { recipient_name: "joe smith", recipient_email: "joe@example.com", messages: "you will join myflix." }

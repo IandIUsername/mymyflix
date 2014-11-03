@@ -16,6 +16,10 @@ gem 'faker'
 gem 'figaro'
 gem 'letter_opener'
 gem 'capybara-email', github: 'dockyard/capybara-email'
+gem 'sidekiq'
+gem 'redis'
+gem 'foreman'
+gem 'unicorn'
 
 
 group :test do

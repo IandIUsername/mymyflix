@@ -9,7 +9,9 @@ class InvitationsController < ApplicationController
     @invitation = Invitation.new(invitation_params)
     @invitation.inviter_id = current_user.id
    if @invitation.save
-     AppMailer.send_invitation_email(@invitation).deliver
+     #AppMailer.send_invitation_email(@invitation).deliver
+     AppMailer.delay.send_invitation_email(@invitation.id)
+     #AppMailer.send_invitation_email.SidekiqWorkerInvitationEmail.perform_async(@invitation.id)
      flash[:success] = "Booya!, you have successfully sent an invitation to #{@invitation.recipient_email} "
     redirect_to new_invitation_path
    else
