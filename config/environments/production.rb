@@ -27,4 +27,6 @@ Myflix::Application.configure do
     :domain    => www.boiling-hollows-3169.herokuapp.com
     :authentication => 'plain',
      }
+  
+ # ENV["REDISTOGO_URL"] = 'redis://username:password@my.host:6389'
 end
