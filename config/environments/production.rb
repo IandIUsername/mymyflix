@@ -31,7 +31,7 @@ Myflix::Application.configure do
     
   ActionMailer::Base.delivery_method = :smtp
   
-#  ENV["REDISTOGO_URL"] = 'redis://redistogo:30346774d912f6130a5d981b90eb01bd@greeneye.redistogo.com:11024/'
+#  ENV["REDISTOGO_URL"] = 
 
  
 end
