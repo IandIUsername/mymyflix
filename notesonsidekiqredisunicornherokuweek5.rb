@@ -107,3 +107,5 @@
 # kill -QUIT `cat tmp/unicorn.pid`
 # and the pid file is then properly deleted by the departing process. I always put the pid file in the same relative place so I guess I could alias that for convenience, although when I am developing I don't usually daemonize unicorn.
 
+#note get redis to go url from heroku --app APP or navigate to the heroku to go add on itself.  	 	
+For me, i had to do heroku labs:enable user-env-compile -a myapp to get it to read my ENV vars during deployment. –  courtsimas Feb 19 at 17:05
