@@ -32,7 +32,7 @@ Myflix::Application.configure do
 #     :user_name => '<username>',
 #     :password  => '<password>',
 #     :authentication => 'plain',
-#     :enable_starttls_auto => true }
+  #     :enable_starttls_auto => true }
   
   
   ENV["REDISTOGO_URL"] = 'redis://redistogo:30346774d912f6130a5d981b90eb01bd@greeneye.redistogo.com:11024/'
