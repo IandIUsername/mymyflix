@@ -108,4 +108,7 @@
 # and the pid file is then properly deleted by the departing process. I always put the pid file in the same relative place so I guess I could alias that for convenience, although when I am developing I don't usually daemonize unicorn.
 
 #note get redis to go url from heroku --app APP or navigate to the heroku to go add on itself.  	 	
-?
+
+# Remember to add before_fork and after_fork hooks if you are using unicorn. devcenter.heroku.com/articles/rails-unicorn#caveats Also, Redis To Go docs: redistogo.com/documentation/resque –  Rafael Oliveira Aug 28 '13 at 20:41
+
+# For me, i had to do heroku labs:enable user-env-compile -a myapp to get it to read my ENV vars during deployment. –  courtsimas Feb 19 at 17:05
