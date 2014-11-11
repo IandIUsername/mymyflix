@@ -9,21 +9,15 @@ require 'paratrooper'
      deployment.deploy
    end
 
-   desc 'Deploy app in production environment'
-   task :production do
-     deployment = Paratrooper::Deploy.new("boiling-hollows-3169") do |deploy|
-       deploy.tag              = 'production',
-       deploy.match_tag        = 'staging',
-       deploy.maintenance_mode = !ENV['NO_MAINTENANCE']
-     end
+   namespace :deploy do
+     desc 'Deploy app in production environment'
+     task :production do
+       deployment = Paratrooper::Deploy.new("immense-ocean-8511", tag: 'proudction')
 
      deployment.deploy
    end
- end
-
-
-
-
+   
+ ?
 # namespace :deploy do
 # desc 'Deploy app in staging environment'
 # task :staging do
