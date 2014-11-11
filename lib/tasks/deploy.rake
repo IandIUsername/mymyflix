@@ -8,6 +8,7 @@ require 'paratrooper'
 
      deployment.deploy
    end
+ end
 
    namespace :deploy do
      desc 'Deploy app in production environment'
@@ -15,8 +16,8 @@ require 'paratrooper'
        deployment = Paratrooper::Deploy.new("immense-ocean-8511", tag: 'proudction')
 
      deployment.deploy
+     end
    end
-   
  
 # namespace :deploy do
 # desc 'Deploy app in staging environment'
