@@ -13,7 +13,7 @@ require 'paratrooper'
    namespace :deploy do
      desc 'Deploy app in production environment'
      task :production do
-       deployment = Paratrooper::Deploy.new("immense-ocean-8511", tag: 'proudction')
+       deployment = Paratrooper::Deploy.new("boiling-hollows-3169", tag: 'production')
 
      deployment.deploy
      end
