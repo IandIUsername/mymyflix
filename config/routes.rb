@@ -1,16 +1,14 @@
 
+require 'sidekiq/web'
+
 Myflix::Application.routes.draw do
-  
+  mount Sidekiq::Web, at: '/sidekiq'
   get 'people', to: 'relationships#index'
-  
   get 'my_queue', to: 'queue_items#index'
   
  # get 'ui(/:action)', controller: 'ui'
  
-  
-  resources :invitations, only: [:new, :create]
-  
-  
+  resources :invitations, only: [:new, :create] 
   resources :videos, only: [:show] do
     collection do 
       post :search, to: "videos#search"
@@ -19,12 +17,9 @@ Myflix::Application.routes.draw do
   end
   
   resources :users, only: [:show, :create]
- 
   resources :sessions, only: [:create]
   resources :queue_items, only: [:create,:destroy]
-
   resources :relationships, only: [:destroy]
-  
   resources :password_resets, only: [:show, :create]
   
   get 'expired_inivtation_token', to: 'pages#expired_token', as: 'expired_invitation_token'

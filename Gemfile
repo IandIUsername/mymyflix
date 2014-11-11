@@ -20,6 +20,14 @@ gem 'sidekiq'
 gem 'redis'
 gem 'foreman'
 gem 'unicorn'
+#gem 'sentry-raven', :require => 'raven'
+#gem "sentry-raven", :git => "https://github.com/getsentry/raven-ruby.git"
+gem 'capistrano'
+gem 'sinatra', require: false
+gem 'slim'
+gem 'sprockets-rails'
+gem 'twitter-bootstrap-rails'
+gem 'paratrooper'
 
 
 group :test do
@@ -42,7 +50,7 @@ group :development do
   gem 'sqlite3'
   gem 'pry'
   gem 'pry-nav'
-  gem 'thin'
+  #gem 'thin'
   gem "better_errors"
   gem "binding_of_caller"
   gem 'bootstrap_form'
