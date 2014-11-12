@@ -1,4 +1,4 @@
-#should this be 6379/12 a originally shown in the documentation or should it be 6379/0 as when I run $redis in the console and get #<Redis client v3.1.0 for redis://localhost:6379/0> 
+
 	
 
 if Rails.env.development? || Rails.env.test?
