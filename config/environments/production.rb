@@ -25,7 +25,7 @@ Myflix::Application.configure do
     :address  => ENV['MAILGUN_SMTP_SERVER'],
     :user_name => ENV['MAILGUN_SMTP_LOGIN'],
     :password  => ENV['MAILGUN_SMTP_PASSWORD'],
-    :domain    => 'www.boiling-hollows-3169.herokuapp.com',
+    :domain    => 'https://boiling-hollows-3169.herokuapp.com',
     :authentication => 'plain',
      }
     
