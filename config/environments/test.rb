@@ -16,5 +16,5 @@ Myflix::Application.configure do
   config.action_mailer.delivery_method = :test
   config.active_support.deprecation = :stderr
   
-  
+  $redis = Redis.new(:host => 'localhost', :port => 6379)
 end

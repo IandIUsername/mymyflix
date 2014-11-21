@@ -13,7 +13,7 @@ class PasswordResetsController < ApplicationController
   end
   
   def create
-#     raise params.inspect
+     #raise params.inspect
     user = User.where(token: params[:token]).first
     if user
       user.password = params[:password]

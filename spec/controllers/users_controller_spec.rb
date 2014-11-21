@@ -62,7 +62,7 @@ end
         invitation = Fabricate(:invitation, inviter: alice, recipient_email: 'joe@example.com')
         post :create, user: { email: 'joe@example.com', password: 'password', full_name: 'john doe' }, invitation_token: invitation.token
         joe = User.where(email: 'joe@example.com').first
-        expect(joe.follows?(alice)).to be_true
+        expect(joe.follows?(alice)).to be true
         
       end
       
@@ -71,7 +71,7 @@ end
         invitation = Fabricate(:invitation, inviter: alice, recipient_email: 'joe@example.com')
         post :create, user: { email: 'joe@example.com', password: 'password', full_name: 'john doe'}, invitation_token: invitation.token
         joe = User.where(email: 'joe@example.com').first
-        expect(alice.follows?(joe)).to be_true
+        expect(alice.follows?(joe)).to be true
       end
       it "expires the invitation upon acceptance" do
         alice = Fabricate(:user)

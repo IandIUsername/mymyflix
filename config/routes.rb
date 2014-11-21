@@ -4,7 +4,12 @@ require 'sidekiq/web'
 Myflix::Application.routes.draw do
   mount Sidekiq::Web, at: '/sidekiq'
   
-  get 'admin/add_video/new', to: 'admin/admin_videos#add_video', as: 'new_admin_add_video'
+ #namespace :admin do
+  #resources :videos, only: [:new, :create]
+ #end
+  
+  post 'admin/videos', to: 'admin/videos#create', as: 'admin_videos'
+  get 'admin/videos/new', to: 'admin/videos#new', as: 'admin_new_video'
   get 'people', to: 'relationships#index'
   get 'my_queue', to: 'queue_items#index'
   

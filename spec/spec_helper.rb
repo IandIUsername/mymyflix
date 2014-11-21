@@ -6,8 +6,9 @@ require 'capybara/email/rspec'
 #require 'sidekiq/testing'
 require 'sidekiq/testing'
 Sidekiq::Testing.inline!
-
-
+#Dir["./spec/support/**/*.rb"].sort.each {|f| require f}
+#Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
+#require 'shared_examples'
 # To query the current state, use the following methods:
 
 # Sidekiq::Testing.enabled?

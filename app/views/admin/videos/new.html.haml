@@ -2,22 +2,16 @@
   .container
     .row
       .col-md-10.col-md-offset-1
-        %form.form-horizontal
+        = bootstrap_form_for [:admin, @video], class: "form-horizontal" do |f|
           %ul.nav.nav-tabs
             %li
-              %a(href="/ui/admin_views_payments") Recent Payments
+              %a(href="") Recent Payments
             %li.active
               %a(href="") Add a New Video
-          %br
           %fieldset
-            .form-group
-              %label.control-label.col-sm-3 Title
-              .col-sm-3
-                %input.form-control(type="text")
-            .form-group
-              %label.control-label.col-sm-3 Category
-              .col-sm-6
-                %select.form-control
+            = f.text_field :title, class: "span3"
+            = f.select :category_id, options_for_select(Category.all.map {|category| [category.category_name, category.id] } )
+            = f.text_area :description, rows: 8, class: "span6"
             .form-group
               %label.control-label.col-sm-3 Description
               .col-sm-6
